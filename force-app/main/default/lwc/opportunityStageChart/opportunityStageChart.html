@@ -1,0 +1,23 @@
+<template>
+  <lightning-card
+    title="Opportunities by Stage"
+    icon-name="standard:opportunity"
+  >
+    <div class="slds-p-around_medium slds-grid slds-grid_vertical">
+      <template for:each={chartData} for:item="stage">
+        <div key={stage.stage} class="chart-item slds-m-bottom_small">
+          <div class="slds-grid slds-grid_align-spread">
+            <span>{stage.stage}</span>
+            <span>{stage.count}</span>
+          </div>
+          <div class="bar-container">
+            <div class="bar" style={stage.style}></div>
+          </div>
+        </div>
+      </template>
+      <template if:true={error}>
+        <p>Could not load chart data.</p>
+      </template>
+    </div>
+  </lightning-card>
+</template>
